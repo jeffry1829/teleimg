@@ -23,7 +23,7 @@ api.on('message', function(message)
                 {
                 console.log(message);
                 if(message.photo){
-                file = message.photo[3].file_id;
+                file = message.photo[message.photo.length-1].file_id;
                 console.log(file);
                 request('https://api.telegram.org/bot'+gtoken+'/getFile?file_id='+file,function(error, response, body){
                         if (!error && response.statusCode == 200) {
